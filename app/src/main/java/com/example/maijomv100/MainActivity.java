@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             else {
                 Log.d("a","Malo "+prueba);
                 Toast mensaje=Toast.makeText(getApplicationContext(),"Rut invalido", Toast.LENGTH_SHORT);
+                
                 mensaje.show();
             }
 

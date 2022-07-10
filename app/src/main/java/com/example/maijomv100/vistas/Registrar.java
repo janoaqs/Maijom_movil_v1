@@ -147,50 +147,60 @@ public class Registrar extends AppCompatActivity {
             registrarBTN.setError("");
         }
         else {
-            //Buider de Retrofit
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(url)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
+            Postulante postobj=new Postulante();
+            postobj.setRut_postulante(rut_postulante);
+            Boolean prueba;
+            prueba=postobj.validacion();
+            if (prueba){
+                //Buider de Retrofit
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(url)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
 
-            //Conexión para registrar en la Base de datos
-            RetrofitConexion miConexion = retrofit.create(RetrofitConexion.class);
-            Call<Boolean> call = miConexion.setPostulante(
-                    rut_postulante,
-                    pass_postulante,
-                    nombre_postulante,
-                    apellido_postulante,
-                    fecha_nacimiento,
-                    sexo_postulante,
-                    correo_postulante,
-                    telefono_postulante,
-                    direccion_postulante,
-                    id_comuna);
-            call.enqueue(new Callback<Boolean>() {
-                @Override
-                public void onResponse(Call<Boolean> call, retrofit2.Response<Boolean> response) {
-                    if (!response.isSuccessful()) {
+                //Conexión para registrar en la Base de datos
+                RetrofitConexion miConexion = retrofit.create(RetrofitConexion.class);
+                Call<Boolean> call = miConexion.setPostulante(
+                        rut_postulante,
+                        pass_postulante,
+                        nombre_postulante,
+                        apellido_postulante,
+                        fecha_nacimiento,
+                        sexo_postulante,
+                        correo_postulante,
+                        telefono_postulante,
+                        direccion_postulante,
+                        id_comuna);
+                call.enqueue(new Callback<Boolean>() {
+                    @Override
+                    public void onResponse(Call<Boolean> call, retrofit2.Response<Boolean> response) {
+                        if (!response.isSuccessful()) {
 
+                        }
+                        Boolean respuesta = response.body();
+                        if (respuesta) {
+                            Toast mensaje=Toast.makeText(getApplicationContext(),"Registro correcto", Toast.LENGTH_SHORT);
+                            mensaje.show();
+                            Intent miIntent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(miIntent);
+                        } else {
+                            Toast mensaje=Toast.makeText(getApplicationContext(),"Registro fallido", Toast.LENGTH_SHORT);
+                            mensaje.show();
+                        }
                     }
-                    Boolean respuesta = response.body();
-                    if (respuesta) {
-                        Toast mensaje=Toast.makeText(getApplicationContext(),"Registro correcto", Toast.LENGTH_SHORT);
-                        mensaje.show();
-                        Intent miIntent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(miIntent);
-                    } else {
-                        Toast mensaje=Toast.makeText(getApplicationContext(),"Registro fallido", Toast.LENGTH_SHORT);
+
+                    @Override
+                    public void onFailure(Call<Boolean> call, Throwable t) {
+                        Toast mensaje=Toast.makeText(getApplicationContext(),"Error de conexion", Toast.LENGTH_SHORT);
                         mensaje.show();
                     }
-                }
-
-                @Override
-                public void onFailure(Call<Boolean> call, Throwable t) {
-                    Toast mensaje=Toast.makeText(getApplicationContext(),"Error de conexion", Toast.LENGTH_SHORT);
-                    mensaje.show();
-                }
-            });
-        }
+                });
+            }
+            else {
+                Toast mensaje=Toast.makeText(getApplicationContext(),"Rut invalido", Toast.LENGTH_SHORT);
+                mensaje.show();
+            }
+        }//fin else
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
