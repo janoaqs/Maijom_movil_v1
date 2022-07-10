@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    app:layout_goneMarginBottom="60dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:paddingBottom="60dp"
+        android:paddingTop="60dp">
+
+        <TextView
+            android:id="@+id/nombre_TV"
+            android:text="Nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/direccion_TV"
+            android:text="Campo"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nombre_TV"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/telefono_TV"
+            android:text="Campo"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/direccion_TV"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/casas_TV"
+            android:text="Campo"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/telefono_TV"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/inmobiliaria_TV"
+            android:text="Campo"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/casas_TV"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/comuna_TV"
+            android:text="Campo"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/inmobiliaria_TV"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/subsidio_TV"
+            android:text="Campo"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/comuna_TV"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
+        </TextView>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

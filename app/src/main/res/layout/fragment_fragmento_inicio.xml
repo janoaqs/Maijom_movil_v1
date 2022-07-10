@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentos.FragmentoInicio"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="80dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Noticias"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+
+        android:shadowColor="#000000"
+        android:shadowRadius="5"
+        android:shadowDx="5"
+        android:shadowDy="5"
+
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-condensed-medium"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/noticias_RV"
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

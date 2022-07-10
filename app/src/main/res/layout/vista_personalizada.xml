@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    app:layout_goneMarginBottom="60dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:paddingBottom="60dp"
+        android:paddingTop="60dp">
+
+        <ImageView
+            android:id="@+id/noticia_IMG"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_launcher_background"
+            >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/titulo_TV"
+            android:text="Titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@id/noticia_IMG"
+            android:layout_toEndOf="@+id/noticia_IMG"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/fecha_TV"
+            android:text="Fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/noticia_IMG"
+            android:layout_toEndOf="@+id/noticia_IMG"
+            android:layout_below="@+id/titulo_TV"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
+        </TextView>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

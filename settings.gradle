@@ -1,0 +1,2 @@
+rootProject.name = "Maijom v1.0.0"
+include ':app'

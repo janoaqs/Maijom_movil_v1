@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentos.FragmentoFicha"
+    android:layout_marginTop="40dp"
+    android:layout_marginBottom="80dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:shadowColor="#000000"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:text="Tu Ficha"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/porcentaje_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:shadowColor="#000000"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:text="Vulnerabilidad 40%"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <ProgressBar
+            android:id="@+id/porcentaje_PB"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:clickable="false" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <TableLayout
+                android:id="@+id/ficha_TL"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:textColor="@color/white">
+            </TableLayout>
+        </ScrollView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:shadowColor="#000000"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="5"
+            android:text="Solicitudes asociadas"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:padding="10dp"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <TableLayout
+                android:id="@+id/solicitudes_TL"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:textColor="@color/white">
+            </TableLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

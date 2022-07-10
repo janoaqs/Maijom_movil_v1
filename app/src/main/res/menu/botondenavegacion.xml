@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragmentoInicio_FRG"
+        android:title="Inicio"
+        android:icon="@drawable/inicio">
+    </item>
+
+    <item
+        android:id="@+id/fragmentoProyectos_FRG"
+        android:title="Proyectos"
+        android:icon="@drawable/proyectos">
+    </item>
+
+    <item
+        android:id="@+id/fragmentoPerfil_FRG"
+        android:title="Inicio"
+        android:icon="@drawable/perfil64">
+    </item>
+
+    <item
+        android:id="@+id/fragmentoFicha_FRG"
+        android:title="Ficha"
+        android:icon="@drawable/ficha">
+    </item>
+
+    <item
+        android:id="@+id/fragmentoPostula_FRG"
+        android:title="Postula"
+        android:icon="@drawable/postula">
+    </item>
+</menu>

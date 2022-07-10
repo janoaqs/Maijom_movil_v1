@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".fragmentos.FragmentoPostula"
+    android:layout_marginTop="40dp"
+    android:layout_marginBottom="80dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Requisitos"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+
+            android:shadowColor="#000000"
+            android:shadowRadius="5"
+            android:shadowDx="5"
+            android:shadowDy="5"
+
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-condensed-medium"/>
+
+        <TextView
+            android:id="@+id/poseeFicha_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Posee ficha: Si"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:shadowColor="#000000"
+            android:shadowRadius="5"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:textAlignment="textStart">
+        </TextView>
+        <TextView
+            android:id="@+id/esMayor_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mayor de edad: Si"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:shadowColor="#000000"
+            android:shadowRadius="5"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:textAlignment="textStart">
+        </TextView>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subsidios disponibles"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+
+            android:shadowColor="#000000"
+            android:shadowRadius="5"
+            android:shadowDx="5"
+            android:shadowDy="5"
+
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-condensed-medium"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/subsidios_RV"
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</FrameLayout>
+

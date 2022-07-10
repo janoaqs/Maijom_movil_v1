@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vistas.DetalleSubsidio">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/nombreSub_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Titulo"
+                android:padding="10dp"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:textStyle="bold">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tipoSub_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tipo"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textAlignment="center">
+            </TextView>
+
+            <TextView
+                android:id="@+id/detalleSub_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Descripcion"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textAlignment="center">
+            </TextView>
+
+            <Button
+                android:id="@+id/postular_BTN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="15dp"
+                android:background="#1976d2"
+                android:enabled="true"
+                android:onClick="Click"
+                android:text="Postula"
+                android:textColor="#FFF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/solicitudPendiente_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Solicitud en cola o aprobada:"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textAlignment="center">
+            </TextView>
+
+            <TextView
+                android:id="@+id/edad_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Edad Apropiada:"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textAlignment="center">
+            </TextView>
+
+            <TextView
+                android:id="@+id/ficha_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ficha asociada:"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textAlignment="center">
+            </TextView>
+
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
