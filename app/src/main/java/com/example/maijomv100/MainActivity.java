@@ -25,6 +25,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Creador Oscar Quintana
+
     EditText rutET;
     EditText passET;
     private final String url="http://172.20.10.3/API/movil/solicitudes/postulante/"; //Base de datos local
