@@ -49,6 +49,7 @@
 
             <EditText
                 android:id="@+id/rut_ET"
+                android:digits="0123456789k"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -75,7 +76,7 @@
                 android:drawableLeft="@drawable/pass"
                 android:drawablePadding="15dp"
                 android:ems="10"
-                android:hint="Password"
+                android:hint="Contraseña"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:inputType="textPassword"
