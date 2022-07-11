@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.maijomv100.interfaces.RetrofitConexion;
@@ -77,10 +81,20 @@ public class MainActivity extends AppCompatActivity {
                 ValidarUsuario();
             }
             else {
-                Log.d("a","Malo "+prueba);
-                Toast mensaje=Toast.makeText(getApplicationContext(),"Rut invalido", Toast.LENGTH_SHORT);
-                
+                //Mensaje personalizado
+                LayoutInflater infladorToast=getLayoutInflater();
+                View vista_error=infladorToast.inflate(R.layout.toast_personalizado_error,(ViewGroup) findViewById(R.id.ll_toast_error));
+
+                TextView mensajeTV=vista_error.findViewById(R.id.Toast_error_texto);
+                mensajeTV.setText("Rut inválido");
+
+                Toast mensaje=new Toast(getApplicationContext());
+                mensaje.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+                mensaje.setView(vista_error);
                 mensaje.show();
+
+                //Toast mensaje=Toast.makeText(getApplicationContext(),"Rut inválido", Toast.LENGTH_SHORT);
+                //mensaje.show();
             }
 
         }
@@ -118,8 +132,20 @@ public class MainActivity extends AppCompatActivity {
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                 String fecha = formatter.format(Date.parse(fechaPostulante.toString()));
 
-                Toast mensaje=Toast.makeText(getApplicationContext(),"Bienvenido "+nombrePostulante, Toast.LENGTH_SHORT);
+
+                //Mensaje personalizado
+                LayoutInflater infladorToast=getLayoutInflater();
+                View vista=infladorToast.inflate(R.layout.toast_personalizado,(ViewGroup) findViewById(R.id.ll_toast_ok));
+
+                TextView mensajeTV=vista.findViewById(R.id.Toast_ok_texto);
+                mensajeTV.setText("Bienvenido "+nombrePostulante);
+
+                Toast mensaje=new Toast(getApplicationContext());
+                mensaje.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+                mensaje.setView(vista);
                 mensaje.show();
+                //Toast mensaje=Toast.makeText(getApplicationContext(),"Bienvenido "+nombrePostulante, Toast.LENGTH_SHORT);
+                //mensaje.show();
 
                 Intent miIntent=new Intent(getApplicationContext(),Inicio.class);
 
@@ -137,9 +163,23 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<List<Postulante>> call, Throwable t) {
-                Toast mensaje=Toast.makeText(getApplicationContext(),"Credenciales incorrectas", Toast.LENGTH_SHORT);
-                Log.d("falla",""+t);
+                //Mensaje personalizado
+                LayoutInflater infladorToast=getLayoutInflater();
+                View vista_error=infladorToast.inflate(R.layout.toast_personalizado_error,(ViewGroup) findViewById(R.id.ll_toast_error));
+
+                TextView mensajeTV=vista_error.findViewById(R.id.Toast_error_texto);
+                mensajeTV.setText("Credenciales incorrectas");
+
+                Toast mensaje=new Toast(getApplicationContext());
+                mensaje.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+                mensaje.setView(vista_error);
                 mensaje.show();
+
+
+
+                //Toast mensaje=Toast.makeText(getApplicationContext(),"Credenciales incorrectas", Toast.LENGTH_SHORT);
+                Log.d("falla",""+t);
+                //mensaje.show();
             }
         });
     }
