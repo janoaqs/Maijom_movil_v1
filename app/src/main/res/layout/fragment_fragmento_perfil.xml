@@ -28,6 +28,7 @@
                 android:drawableLeft="@drawable/escribir"
                 android:drawablePadding="15dp"
                 android:ems="10"
+                android:focusable="false"
                 android:background="@color/white"
                 android:hint="rut"
                 android:inputType="textPersonName"

@@ -9,7 +9,10 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -142,8 +145,21 @@ public class Registrar extends AppCompatActivity {
                 correo_postulante.equals("") ||
                 telefono_postulante.equals("") ||
                 direccion_postulante.equals("")) {
-            Toast mensaje=Toast.makeText(getApplicationContext(),"Ingrese todos los campos", Toast.LENGTH_SHORT);
-            mensaje.show();
+            //Mensaje personalizado ppara que ingrese todos los campos
+            LayoutInflater infladorToast=getLayoutInflater();
+            View vista_error=infladorToast.inflate(R.layout.toast_personalizado_error,(ViewGroup) findViewById(R.id.ll_toast_error));
+
+            TextView mensajeTV=vista_error.findViewById(R.id.Toast_error_texto);
+            mensajeTV.setText("Ingrese todos los campos");
+
+            Toast mensajeError=new Toast(getApplicationContext());
+            mensajeError.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+            mensajeError.setView(vista_error);
+            mensajeError.show();
+
+
+            //Toast mensaje=Toast.makeText(getApplicationContext(),"Ingrese todos los campos", Toast.LENGTH_SHORT);
+            //mensaje.show();
             registrarBTN.setError("");
         }
         else {
@@ -179,13 +195,37 @@ public class Registrar extends AppCompatActivity {
                         }
                         Boolean respuesta = response.body();
                         if (respuesta) {
-                            Toast mensaje=Toast.makeText(getApplicationContext(),"Registro correcto", Toast.LENGTH_SHORT);
-                            mensaje.show();
+                            //Mensaje personalizado para edición correcta
+                            LayoutInflater infladorToast=getLayoutInflater();
+                            View vistaOk=infladorToast.inflate(R.layout.toast_personalizado,(ViewGroup) findViewById(R.id.ll_toast_ok));
+
+                            TextView mensajeTV=vistaOk.findViewById(R.id.Toast_ok_texto);
+                            mensajeTV.setText("Registro correcto");
+
+                            Toast mensajeOk=new Toast(getApplicationContext());
+                            mensajeOk.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+                            mensajeOk.setView(vistaOk);
+                            mensajeOk.show();
+
+
+                            //Toast mensaje=Toast.makeText(getApplicationContext(),"Registro correcto", Toast.LENGTH_SHORT);
+                            //mensaje.show();
                             Intent miIntent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(miIntent);
                         } else {
-                            Toast mensaje=Toast.makeText(getApplicationContext(),"Registro fallido", Toast.LENGTH_SHORT);
-                            mensaje.show();
+                            //Mensaje personalizado para registro sin éxito
+                            LayoutInflater infladorToast=getLayoutInflater();
+                            View vista_error=infladorToast.inflate(R.layout.toast_personalizado_error,(ViewGroup) findViewById(R.id.ll_toast_error));
+
+                            TextView mensajeTV=vista_error.findViewById(R.id.Toast_error_texto);
+                            mensajeTV.setText("Registro sin éxito");
+
+                            Toast mensajeError=new Toast(getApplicationContext());
+                            mensajeError.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+                            mensajeError.setView(vista_error);
+                            mensajeError.show();
+                            //Toast mensaje=Toast.makeText(getApplicationContext(),"Registro fallido", Toast.LENGTH_SHORT);
+                            //mensaje.show();
                         }
                     }
 
@@ -197,8 +237,21 @@ public class Registrar extends AppCompatActivity {
                 });
             }
             else {
-                Toast mensaje=Toast.makeText(getApplicationContext(),"Rut invalido", Toast.LENGTH_SHORT);
-                mensaje.show();
+                //Mensaje personalizado para rut inválido
+                LayoutInflater infladorToast=getLayoutInflater();
+                View vista_error=infladorToast.inflate(R.layout.toast_personalizado_error,(ViewGroup) findViewById(R.id.ll_toast_error));
+
+                TextView mensajeTV=vista_error.findViewById(R.id.Toast_error_texto);
+                mensajeTV.setText("Rut inválido");
+
+                Toast mensajeError=new Toast(getApplicationContext());
+                mensajeError.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+                mensajeError.setView(vista_error);
+                mensajeError.show();
+
+
+                //Toast mensaje=Toast.makeText(getApplicationContext(),"Rut invalido", Toast.LENGTH_SHORT);
+                //mensaje.show();
             }
         }//fin else
     }

@@ -29,7 +29,7 @@ public class DetalleNoticia extends AppCompatActivity {
         String titulo=miIntent.getStringExtra("titulo_noticia");
         String detalle=miIntent.getStringExtra("descripcion_noticia");
 
-        String imagen="http://172.20.10.3/API/movil/solicitudes/noticias/"+miIntent.getStringExtra("imagen_noticia");
+        String imagen="http://172.20.10.3/imagenes/"+miIntent.getStringExtra("imagen_noticia");
 
         Picasso.get()
                 .load(imagen)

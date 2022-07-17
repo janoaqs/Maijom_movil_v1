@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         rutET=findViewById(R.id.rut_ET);
         passET=findViewById(R.id.pass_ET);
 
-
     }
 
     //Click en el boton Iniciar Sesion
@@ -60,14 +59,47 @@ public class MainActivity extends AppCompatActivity {
         if (rutVal.equals("") && passVal.equals("")) {
             rutET.setError("Intruduce un rut");
             passET.setError("Introduce la contraseña");
+            //Mensaje personalizado ppara que ingrese todos los campos
+            LayoutInflater infladorToast=getLayoutInflater();
+            View vista_error=infladorToast.inflate(R.layout.toast_personalizado_error,(ViewGroup) findViewById(R.id.ll_toast_error));
+
+            TextView mensajeTV=vista_error.findViewById(R.id.Toast_error_texto);
+            mensajeTV.setText("Ingrese todos los campos");
+
+            Toast mensajeError=new Toast(getApplicationContext());
+            mensajeError.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+            mensajeError.setView(vista_error);
+            mensajeError.show();
             return;
         }
         else if (rutVal.equals("")) {
             rutET.setError("Intruduce un rut");
+            //Mensaje personalizado ppara que ingrese todos los campos
+            LayoutInflater infladorToast=getLayoutInflater();
+            View vista_error=infladorToast.inflate(R.layout.toast_personalizado_error,(ViewGroup) findViewById(R.id.ll_toast_error));
+
+            TextView mensajeTV=vista_error.findViewById(R.id.Toast_error_texto);
+            mensajeTV.setText("Ingrese todos los campos");
+
+            Toast mensajeError=new Toast(getApplicationContext());
+            mensajeError.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+            mensajeError.setView(vista_error);
+            mensajeError.show();
             return;
         }
         else if (passVal.equals("")) {
             passET.setError("Introduce la contraseña");
+            //Mensaje personalizado ppara que ingrese todos los campos
+            LayoutInflater infladorToast=getLayoutInflater();
+            View vista_error=infladorToast.inflate(R.layout.toast_personalizado_error,(ViewGroup) findViewById(R.id.ll_toast_error));
+
+            TextView mensajeTV=vista_error.findViewById(R.id.Toast_error_texto);
+            mensajeTV.setText("Ingrese todos los campos");
+
+            Toast mensajeError=new Toast(getApplicationContext());
+            mensajeError.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+            mensajeError.setView(vista_error);
+            mensajeError.show();
             return;
         }
         else {
@@ -81,17 +113,17 @@ public class MainActivity extends AppCompatActivity {
                 ValidarUsuario();
             }
             else {
-                //Mensaje personalizado
+                //Mensaje personalizado para rut inválido
                 LayoutInflater infladorToast=getLayoutInflater();
                 View vista_error=infladorToast.inflate(R.layout.toast_personalizado_error,(ViewGroup) findViewById(R.id.ll_toast_error));
 
                 TextView mensajeTV=vista_error.findViewById(R.id.Toast_error_texto);
                 mensajeTV.setText("Rut inválido");
 
-                Toast mensaje=new Toast(getApplicationContext());
-                mensaje.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
-                mensaje.setView(vista_error);
-                mensaje.show();
+                Toast mensajeError=new Toast(getApplicationContext());
+                mensajeError.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+                mensajeError.setView(vista_error);
+                mensajeError.show();
 
                 //Toast mensaje=Toast.makeText(getApplicationContext(),"Rut inválido", Toast.LENGTH_SHORT);
                 //mensaje.show();
@@ -133,17 +165,17 @@ public class MainActivity extends AppCompatActivity {
                 String fecha = formatter.format(Date.parse(fechaPostulante.toString()));
 
 
-                //Mensaje personalizado
+                //Mensaje personalizado cuando las credenciales son correctas
                 LayoutInflater infladorToast=getLayoutInflater();
-                View vista=infladorToast.inflate(R.layout.toast_personalizado,(ViewGroup) findViewById(R.id.ll_toast_ok));
+                View vistaOk=infladorToast.inflate(R.layout.toast_personalizado,(ViewGroup) findViewById(R.id.ll_toast_ok));
 
-                TextView mensajeTV=vista.findViewById(R.id.Toast_ok_texto);
+                TextView mensajeTV=vistaOk.findViewById(R.id.Toast_ok_texto);
                 mensajeTV.setText("Bienvenido "+nombrePostulante);
 
-                Toast mensaje=new Toast(getApplicationContext());
-                mensaje.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
-                mensaje.setView(vista);
-                mensaje.show();
+                Toast mensajeOk=new Toast(getApplicationContext());
+                mensajeOk.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+                mensajeOk.setView(vistaOk);
+                mensajeOk.show();
                 //Toast mensaje=Toast.makeText(getApplicationContext(),"Bienvenido "+nombrePostulante, Toast.LENGTH_SHORT);
                 //mensaje.show();
 
@@ -163,17 +195,17 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<List<Postulante>> call, Throwable t) {
-                //Mensaje personalizado
+                //Mensaje personalizado para credenciales incorrectas
                 LayoutInflater infladorToast=getLayoutInflater();
                 View vista_error=infladorToast.inflate(R.layout.toast_personalizado_error,(ViewGroup) findViewById(R.id.ll_toast_error));
 
                 TextView mensajeTV=vista_error.findViewById(R.id.Toast_error_texto);
                 mensajeTV.setText("Credenciales incorrectas");
 
-                Toast mensaje=new Toast(getApplicationContext());
-                mensaje.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
-                mensaje.setView(vista_error);
-                mensaje.show();
+                Toast mensajeError=new Toast(getApplicationContext());
+                mensajeError.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+                mensajeError.setView(vista_error);
+                mensajeError.show();
 
 
 

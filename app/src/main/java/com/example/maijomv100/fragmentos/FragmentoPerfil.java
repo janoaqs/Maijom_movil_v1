@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -287,8 +288,21 @@ public class FragmentoPerfil extends Fragment {
                             }
                             Boolean respuesta=response.body();
                             if (respuesta) {
-                                Toast mensaje=Toast.makeText(getActivity(),"Edicion correcto", Toast.LENGTH_SHORT);
-                                mensaje.show();
+                                //Mensaje personalizado
+                                LayoutInflater infladorToast=getLayoutInflater();
+                                View vistaOk=infladorToast.inflate(R.layout.toast_personalizado,(ViewGroup) perfilFrag.findViewById(R.id.ll_toast_ok));
+
+                                TextView mensajeTV=vistaOk.findViewById(R.id.Toast_ok_texto);
+                                mensajeTV.setText("Edición correcta");
+
+                                Toast mensajeOk=new Toast(getActivity());
+                                mensajeOk.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+                                mensajeOk.setView(vistaOk);
+                                mensajeOk.show();
+
+
+                                //Toast mensaje=Toast.makeText(getActivity(),"Edicion correcto", Toast.LENGTH_SHORT);
+                                //mensaje.show();
                             } else {
                                 Toast mensaje=Toast.makeText(getActivity(),"Edicion fallida", Toast.LENGTH_SHORT);
                                 mensaje.show();
