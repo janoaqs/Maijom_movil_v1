@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -156,13 +159,30 @@ public class DetalleSubsidio extends AppCompatActivity {
                 }else {
                     Boolean respuesta=response.body();
                     if (respuesta){
-                        Toast mensaje=Toast.makeText(getApplicationContext(),"Postulación exitosa", Toast.LENGTH_SHORT);
-                        mensaje.show();
-                        postularBTN.setEnabled(false);
+                        //Mensaje personalizado para postulación correcta
+                        LayoutInflater infladorToast=getLayoutInflater();
+                        View vistaOk=infladorToast.inflate(R.layout.toast_personalizado,(ViewGroup) findViewById(R.id.ll_toast_ok));
+
+                        TextView mensajeTV=vistaOk.findViewById(R.id.Toast_ok_texto);
+                        mensajeTV.setText("Postulación exitosa");
+
+                        Toast mensajeOk=new Toast(getApplicationContext());
+                        mensajeOk.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+                        mensajeOk.setView(vistaOk);
+                        mensajeOk.show();
                     }
                     else {
-                        Toast mensaje=Toast.makeText(getApplicationContext(),"No se pudo postular", Toast.LENGTH_SHORT);
-                        mensaje.show();
+                        //Mensaje personalizado para error en postulación
+                        LayoutInflater infladorToast=getLayoutInflater();
+                        View vista_error=infladorToast.inflate(R.layout.toast_personalizado_error,(ViewGroup) findViewById(R.id.ll_toast_error));
+
+                        TextView mensajeTV=vista_error.findViewById(R.id.Toast_error_texto);
+                        mensajeTV.setText("No se pudo postular");
+
+                        Toast mensajeError=new Toast(getApplicationContext());
+                        mensajeError.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
+                        mensajeError.setView(vista_error);
+                        mensajeError.show();
                     }
                 }
             }
