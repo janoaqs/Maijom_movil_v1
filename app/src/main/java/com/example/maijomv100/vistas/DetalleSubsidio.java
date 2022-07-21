@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -96,6 +97,7 @@ public class DetalleSubsidio extends AppCompatActivity {
         edadTV.setText("Usted cumple con la edad requerida("+edad+")");
         if (edad<18){
             postularBTN.setEnabled(false);
+            postularBTN.setBackgroundColor(Color.parseColor("#959595"));
             edadTV.setText("Usted NO cumple con la edad requerida o NO tiene ficha");
         }
 
@@ -103,6 +105,7 @@ public class DetalleSubsidio extends AppCompatActivity {
         Log.d("jano","la id ficha es "+id_ficha);
         if (id_ficha.equals("NO")) {
             postularBTN.setEnabled(false);
+            postularBTN.setBackgroundColor(Color.parseColor("#959595"));
             fichaTV.setText("Usted NO ESTÁ asociado a una ficha");
         }
         mostrarSubsidioBdd();
@@ -124,7 +127,12 @@ public class DetalleSubsidio extends AppCompatActivity {
                 }
                 if (solicitudAnterior==true) {
                     postularBTN.setEnabled(false);
+                    postularBTN.setBackgroundColor(Color.parseColor("#959595"));
                     solicitudTV.setText("Ustedes TIENE solicitud EN TRÁMITE o APROBADA");
+
+
+
+
                 }
                 else if(solicitudAnterior==false) {
                     solicitudTV.setText("Ustedes NO TIENE solicitud EN TRÁMITE o APROBADA");
@@ -170,6 +178,8 @@ public class DetalleSubsidio extends AppCompatActivity {
                         mensajeOk.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER, 0, 200);
                         mensajeOk.setView(vistaOk);
                         mensajeOk.show();
+                        postularBTN.setEnabled(false);
+                        postularBTN.setBackgroundColor(Color.parseColor("#959595"));
                     }
                     else {
                         //Mensaje personalizado para error en postulación
